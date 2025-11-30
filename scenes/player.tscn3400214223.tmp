@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cerhrkvtdsnuh"]
+
+[ext_resource type="Texture2D" uid="uid://cjg07oiju74ny" path="res://assets/sprites/s_player.png" id="1_0dhxa"]
+[ext_resource type="Script" uid="uid://bb28tujigj0ks" path="res://scripts/movement.gd" id="1_eeiko"]
+[ext_resource type="PackedScene" uid="uid://8vrr27vv6bdl" path="res://scenes/lantern.tscn" id="3_qhqgy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dhxa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0dhxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxwqc"]
+size = Vector2(15, 54)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_eeiko")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0dhxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_hxwqc")
+
+[node name="lantern" parent="." instance=ExtResource("3_qhqgy")]

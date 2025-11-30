@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d35ivhysfjaod"]
+
+[ext_resource type="Texture2D" uid="uid://btu4nw5qb8j4i" path="res://assets/sprites/s_flame.png" id="1_ktous"]
+[ext_resource type="Script" uid="uid://cmxp034gsilgn" path="res://scripts/flame.gd" id="1_x50ei"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x50ei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ktous")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmmd7"]
+size = Vector2(6, 8.583334)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_x50ei")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x50ei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.45)
+scale = Vector2(1.1, 0.77)
+shape = SubResource("RectangleShape2D_hmmd7")
