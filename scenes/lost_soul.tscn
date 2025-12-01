@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://4nh8g6diwc5n"]
+
+[ext_resource type="Script" uid="uid://cmlh2rc1hrc8m" path="res://scripts/lost_soul.gd" id="1_fdqfl"]
+[ext_resource type="Texture2D" uid="uid://8beq8b4w7hnx" path="res://assets/sprites/s_lostSoul.png" id="1_ou1ih"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdqfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ou1ih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b6jh"]
+size = Vector2(29, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5b6jh"]
+radius = 129.0155
+
+[node name="lost_soul" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_fdqfl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fdqfl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_5b6jh")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_5b6jh")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

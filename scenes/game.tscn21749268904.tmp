@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://yyj50kit456"]
+[gd_scene load_steps=2 format=3 uid="uid://yyj50kit456"]
 
 [ext_resource type="PackedScene" uid="uid://cerhrkvtdsnuh" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://4nh8g6diwc5n" path="res://scenes/lost_soul.tscn" id="2_yqjtg"]
 
 [node name="game" type="Node2D"]
 
@@ -9,6 +8,3 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-
-[node name="lost_soul" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(144, -48)

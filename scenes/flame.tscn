@@ -17,7 +17,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmmd7"]
 size = Vector2(6, 8.583334)
 
-[node name="Area2D" type="Area2D"]
+[node name="flame" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_x50ei")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -27,3 +28,5 @@ sprite_frames = SubResource("SpriteFrames_x50ei")
 position = Vector2(0, -0.45)
 scale = Vector2(1.1, 0.77)
 shape = SubResource("RectangleShape2D_hmmd7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
